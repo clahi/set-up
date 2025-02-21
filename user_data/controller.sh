@@ -56,4 +56,3 @@ kubectl get nodes
 
 kubeadm token create --print-join-command > join-command.txt
 
-EOF
