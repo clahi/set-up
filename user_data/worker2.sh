@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo -i -u myuser << 'EOF'
 
 cd /home/ubuntu
 
@@ -46,4 +45,3 @@ sudo apt-get install -y kubelet kubeadm kubectl
 
 sudo apt-mark hold kubelet kubeadm kubectl
 
-EOF
