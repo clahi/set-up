@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo -i -u myuser << 'EOF'
+
 cd /home/ubuntu
 
 sudo hostnamectl set-hostname k8s-worker1
@@ -42,5 +44,7 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 
 sudo apt-mark hold kubelet kubeadm kubectl
+
+EOF
 
 
