@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/ubuntu
+
 sudo hostnamectl set-hostname k8s-control
 
 # echo ${message}
