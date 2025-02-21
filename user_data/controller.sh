@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd /home/ubuntu
+sudo -i -u myuser << 'EOF'
+cd $HOME
 
 sudo hostnamectl set-hostname k8s-control
 
@@ -54,4 +55,6 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/
 
 kubectl get nodes
 
-# kubeadm token create --print-join-command
+kubeadm token create --print-join-command > join-command.txt
+
+EOF
