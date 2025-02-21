@@ -7,19 +7,19 @@ sudo hostnamectl set-hostname k8s-control
 
 # echo ${message}
 
-cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
+cat <<CONTAINERD_EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
-EOF
+CONTAINERD_EOF
 
 sudo modprobe overlay
 sudo modprobe br_netfilter
 
-cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+cat <<CONTAINERD_EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 net.bridge.bridge-nf-call-ip6tables = 1
-EOF
+CONTAINERD_EOF
 
 sudo sysctl --system
 
@@ -34,9 +34,9 @@ sudo swapoff -a
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.27/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+cat <<CONTAINERD_EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb [trusted=yes] https://pkgs.k8s.io/core:/stable:/v1.27/deb/ /
-EOF
+CONTAINERD_EOF
 
 sudo apt-get update
 
