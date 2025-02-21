@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/ubuntu
+
 sudo hostnamectl set-hostname k8s-worker2
 
 # echo ${message}
