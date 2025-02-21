@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo -i -u myuser << EOF
+sudo -i -u ubuntu <<EOF
 cd $HOME
 
 sudo hostnamectl set-hostname k8s-control
